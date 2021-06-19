@@ -12,10 +12,13 @@ namespace ULTanksZombies.Tank
         private float speed;
         private float rotationSpeed;
         private float fireRate;
+        private float specialFireRate;
 
         //private Vector3 mousePosition;
         private bool shoot = false;
         private float countdown = 0f;
+        private bool specialShoot = false;
+        private float specialCountdown = 0f;
 
         public MoveState(TankController controller, TankStateMachine fsm) : base(controller, fsm)
         {
@@ -23,6 +26,7 @@ namespace ULTanksZombies.Tank
             speed = controller.speed;
             rotationSpeed = controller.rotationSpeed;
             fireRate = controller.fireRate;
+            specialFireRate = controller.specialFireRate;
         }
 
         public override void OnHandleInput()
@@ -39,6 +43,14 @@ namespace ULTanksZombies.Tank
             }
             countdown -= Time.deltaTime;
 
+            if (Input.GetMouseButtonDown(1) && specialCountdown <= 0f)
+            {
+                //Fire
+                specialShoot = true;
+                specialCountdown = 1f / specialFireRate;
+            }
+            specialCountdown -= Time.deltaTime;
+
         }
 
         public override void OnLogicUpdate()
@@ -46,8 +58,13 @@ namespace ULTanksZombies.Tank
             base.OnLogicUpdate();
             if (shoot)
             {
-                controller.Fire();
+                controller.Fire(false);
                 shoot = false;
+            }
+            if (specialShoot)
+            {
+                controller.Fire(true);
+                specialShoot = false;
             }
         }
 
@@ -62,5 +79,6 @@ namespace ULTanksZombies.Tank
 
             controller.transform.Rotate(Vector3.up * horizontalMovement * rotationSpeed);
         }
+
     }
 }

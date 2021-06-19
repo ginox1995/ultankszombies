@@ -10,7 +10,9 @@ namespace ULTanksZombies.Tank
         public float speed;
         public float rotationSpeed;
         public GameObject bulletPrefab;
+        public GameObject specialBulletPrefab;
         public float fireRate;
+        public float specialFireRate;
 
         private TankStateMachine fsm;
         private Transform firePoint;
@@ -39,9 +41,12 @@ namespace ULTanksZombies.Tank
             fsm.CurrentState.OnPhysicsUpdate();
         }
 
-        public void Fire()
+        public void Fire(bool specialBullet)
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            GameObject prefab = (specialBullet) ? specialBulletPrefab : bulletPrefab;
+            
+            Instantiate(prefab, firePoint.position, firePoint.rotation);
         }
     }
 

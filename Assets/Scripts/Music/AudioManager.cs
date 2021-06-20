@@ -1,4 +1,7 @@
 using UnityEngine.Audio;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -6,29 +9,47 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public AudioSource BGM;
 
+    public static AudioManager instance;
+
     void Awake() 
     {
+        if (instance == null)
+            instance = this;
+        else
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+        DontDestroyOnLoad(transform.gameObject);
+
+
         foreach (Sound s in sounds) 
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
         }
 
-        DontDestroyOnLoad(transform.gameObject);
+        
     }
 
-    public void ChangeBGM(AudioClip music) 
+    void Start()
     {
-        BGM.Stop();
-        BGM.clip = music;
-        BGM.Play();
+        Play("Precipice of Defeat");
     }
 
     public void Play(string name) 
     {
 
-        //Sound s = Array.Find(sounds, sound => );
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "not found");
+            return ;
+        }
+        s.source.Play();
     }
 }

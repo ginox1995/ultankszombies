@@ -842,7 +842,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 48daff3a826e8864d86f285736ae11b3, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -959,14 +959,20 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: be6a8ea26321ebe4c8c491de1a0a2819, type: 3}
     volume: 0
     pitch: 0
+    loop: 0
+    source: {fileID: 0}
   - name: Precipice of Defeat
     clip: {fileID: 8300000, guid: 48daff3a826e8864d86f285736ae11b3, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.441
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Treachery
     clip: {fileID: 8300000, guid: 090d5fb745b2d5940ab28b761c2294de, type: 3}
     volume: 0
     pitch: 0
+    loop: 0
+    source: {fileID: 0}
   BGM: {fileID: 0}
 --- !u!1 &1695474478
 GameObject:

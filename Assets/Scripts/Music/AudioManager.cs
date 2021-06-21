@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Precipice of Defeat");
+        //Play("Precipice of Defeat");
     }
 
     public void Play(string name) 

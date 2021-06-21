@@ -12,6 +12,7 @@ namespace ULTanksZombies
 
         public GameObject[] zombies;
         public float spawnZombieTime = 3f;
+        public bool spaw;
 
         private float timerToSpawnZombie = 0f;
 
@@ -24,13 +25,18 @@ namespace ULTanksZombies
             {
                 instance = this;
             }
+            spaw = true;
         }
 
         private void Update()
         {
             if( timerToSpawnZombie > spawnZombieTime)
             {
-                SpawnZombie();
+                if (spaw)
+                {
+                    SpawnZombie();
+                    spaw = false;
+                }
                 timerToSpawnZombie = 0f;
             }
             timerToSpawnZombie += Time.deltaTime;

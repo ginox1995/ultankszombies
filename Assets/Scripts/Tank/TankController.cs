@@ -17,15 +17,16 @@ namespace ULTanksZombies.Tank
         private TankStateMachine fsm;
         private Transform firePoint;
 
-        //private IdleState idleState;
+        private IdleState idleState;
         private MoveState moveState;
 
         private void Start()
         {
             fsm = new TankStateMachine();
             moveState = new MoveState(this, fsm);
+            idleState = new IdleState(this, fsm);
 
-            fsm.Start(moveState);
+            fsm.Start(idleState);
 
             firePoint = transform.GetChild(0).GetChild(0).transform;
         }
@@ -34,6 +35,16 @@ namespace ULTanksZombies.Tank
         {
             fsm.CurrentState.OnHandleInput();
             fsm.CurrentState.OnLogicUpdate();
+        }
+
+        public void Move()
+        {
+            fsm.ChangeState(moveState);
+        }
+
+        public void Stop()
+        {
+            fsm.ChangeState(idleState);
         }
 
         private void FixedUpdate()

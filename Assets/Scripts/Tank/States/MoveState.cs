@@ -6,6 +6,7 @@ namespace ULTanksZombies.Tank
 {
     public class MoveState : TankState
     {
+        private AudioSource audioSource;
         private Rigidbody rb;
         private float horizontalMovement;
         private float verticalMovement;
@@ -27,6 +28,7 @@ namespace ULTanksZombies.Tank
             rotationSpeed = controller.rotationSpeed;
             fireRate = controller.fireRate;
             specialFireRate = controller.specialFireRate;
+            audioSource = controller.GetComponent<AudioSource>();
         }
 
         public override void OnHandleInput()
@@ -66,6 +68,11 @@ namespace ULTanksZombies.Tank
                 controller.Fire(true);
                 specialShoot = false;
             }
+            if (horizontalMovement == 0f || verticalMovement == 0f)
+            {
+                Debug.Log("stop");
+                controller.Stop();
+            }
         }
 
         public override void OnPhysicsUpdate()
@@ -79,6 +86,16 @@ namespace ULTanksZombies.Tank
 
             controller.transform.Rotate(Vector3.up * horizontalMovement * rotationSpeed);
         }
+        public override void OnEnter() 
+        {
+            audioSource.Play();
+        }
 
+
+
+        public override void OnExit() 
+        {
+            audioSource.Stop();
+        }
     }
 }

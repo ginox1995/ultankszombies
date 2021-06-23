@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using ULTanksZombies.Music;
 using UnityEngine;
 
 namespace ULTanksZombies.Zombies
@@ -10,15 +12,16 @@ namespace ULTanksZombies.Zombies
         private float speed;
         private float rotationSpeed;
         private Rigidbody rb;
-
+        
         public ChasingState(ZombieController controller, ZombieStateMachine fsm) : base(controller, fsm)
         {
             tank = controller.tank;
             speed = controller.settings.speed;
             rotationSpeed = controller.settings.rotationSpeed;
             rb = controller.GetComponent<Rigidbody>();
+         
         }
-
+                
         public override void OnPhysicsUpdate()
         {
             base.OnPhysicsUpdate();

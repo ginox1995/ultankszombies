@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ULTanksZombies.Music;
 
 namespace ULTanksZombies.Tank
 {
@@ -48,11 +49,15 @@ namespace ULTanksZombies.Tank
             if (Input.GetMouseButtonDown(1) && specialCountdown <= 0f)
             {
                 //Fire
+                
                 specialShoot = true;
                 specialCountdown = 1f / specialFireRate;
             }
             specialCountdown -= Time.deltaTime;
-
+            if (horizontalMovement == 0f && verticalMovement == 0f)
+            {
+                controller.Stop();
+            }
         }
 
         public override void OnLogicUpdate()
@@ -68,11 +73,7 @@ namespace ULTanksZombies.Tank
                 controller.Fire(true);
                 specialShoot = false;
             }
-            if (horizontalMovement == 0f || verticalMovement == 0f)
-            {
-                Debug.Log("stop");
-                controller.Stop();
-            }
+
         }
 
         public override void OnPhysicsUpdate()
@@ -88,14 +89,15 @@ namespace ULTanksZombies.Tank
         }
         public override void OnEnter() 
         {
-            audioSource.Play();
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("TankRunnig");
         }
 
 
 
         public override void OnExit() 
         {
-            audioSource.Stop();
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Stop("TankRunnig");
+            
         }
     }
 }

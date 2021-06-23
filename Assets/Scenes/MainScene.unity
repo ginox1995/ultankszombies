@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 1385485321}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -762,9 +762,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 675e04ce424c87e45a7d831e662f67b8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.742
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 1616145340}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,6 +1069,30 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 090d5fb745b2d5940ab28b761c2294de, type: 3}
     volume: 0
     pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieShooted
+    clip: {fileID: 8300000, guid: fa470d538c8125c4f83606ba82774522, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TankRunnig
+    clip: {fileID: 8300000, guid: 675e04ce424c87e45a7d831e662f67b8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: TankSpecialShot
+    clip: {fileID: 8300000, guid: 675e04ce424c87e45a7d831e662f67b8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TankStopping
+    clip: {fileID: 8300000, guid: 0ee845eebea62a14da709d66aab346b5, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   BGM: {fileID: 0}

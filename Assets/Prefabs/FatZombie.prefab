@@ -126,6 +126,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef2a779bfb51c64a8a72b664cbc4a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds:
+  - name: ZombieShooted
+    clip: {fileID: 8300000, guid: fa470d538c8125c4f83606ba82774522, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieWisper
+    clip: {fileID: 8300000, guid: c9e087c1590ba10418d64b2f0c26b257, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   tank: {fileID: 0}
   settings: {fileID: 11400000, guid: f194fbc7a03114f1b97a3e0428e51bf0, type: 2}
 --- !u!82 &-3940975578269626833
@@ -135,7 +148,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4390977010490745720}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c9e087c1590ba10418d64b2f0c26b257, type: 3}

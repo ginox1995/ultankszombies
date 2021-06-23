@@ -4,52 +4,67 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+namespace ULTanksZombies.Music
 {
-    public Sound[] sounds;
-    public AudioSource BGM;
-
-    public static AudioManager instance;
-
-    void Awake() 
+    public class AudioManager : MonoBehaviour
     {
-        if (instance == null)
-            instance = this;
-        else
+        public Sound[] sounds;
+        public AudioSource BGM;
+
+        public static AudioManager instance;
+
+        void Awake()
+        {
+            if (instance == null)
+                instance = this;
+            else
             {
                 Destroy(gameObject);
                 return;
             }
 
-        DontDestroyOnLoad(transform.gameObject);
+            DontDestroyOnLoad(transform.gameObject);
 
 
-        foreach (Sound s in sounds) 
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+            foreach (Sound s in sounds)
+            {
+                s.source = gameObject.AddComponent<AudioSource>();
+                s.source.clip = s.clip;
+                s.source.volume = s.volume;
+                s.source.pitch = s.pitch;
+                s.source.loop = s.loop;
+            }
+
+
         }
 
-        
-    }
-
-    void Start()
-    {
-        //Play("Precipice of Defeat");
-    }
-
-    public void Play(string name) 
-    {
-
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        void Start()
         {
-            Debug.LogWarning("Sound: " + name + "not found");
-            return ;
+            Play("Precipice of Defeat");
         }
-        s.source.Play();
+
+        public void Play(string name)
+        {
+
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null)
+            {
+                Debug.LogWarning("Sound: " + name + "not found");
+                return;
+            }
+            s.source.Play();
+        }
+
+        public void Stop(string name)
+        {
+
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null)
+            {
+                Debug.LogWarning("Sound: " + name + "not found");
+                return;
+            }
+            s.source.Stop();
+        }
     }
 }

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace ULTankZombies.Zombies {
+using ULTanksZombies.Music;
+
+namespace ULTanksZombies.Zombies
+{
     public class ZombieController : MonoBehaviour
     {
+        
         public Transform tank;
         public SettingsComponent settings;
         GameManager gm;
@@ -21,6 +25,7 @@ namespace ULTankZombies.Zombies {
             chasingState = new ChasingState(this,fsm);
             fsm.Start(chasingState);
             gm = FindObjectOfType<GameManager>();
+            
         }
         private void Update()
         {

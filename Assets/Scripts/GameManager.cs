@@ -13,6 +13,7 @@ namespace ULTankZombies
         public AudioSource HordeStartSound;
         public AudioSource CountdownAudio;
         public GameObject[] zombies;
+
         private int hordeNumber = 5;
         private List<GameObject> zombiesHorde = new List<GameObject>();
         private float spawnZombieTime = 3;
@@ -20,6 +21,7 @@ namespace ULTankZombies
         public GameObject zombieFast;
         public GameObject zombieFat;
         private float timerToSpawnZombie=0f;
+
         public Transform tank;
         [SerializeField] Text countdownHorde;
         [SerializeField] Text ScoreText;
@@ -34,6 +36,7 @@ namespace ULTankZombies
             {
                 instance = this;
             }
+
             PlayCountdown = false;
             spawnHordeTime = 60;
         }
@@ -83,6 +86,7 @@ namespace ULTankZombies
             //ARREGLAR COUNTDOWN
             if (spawnHordeTime < 10.5f && spawnHordeTime>10f)
             {
+
                 PlayCountdown = true;
             }
             if (!PlayCountdown)

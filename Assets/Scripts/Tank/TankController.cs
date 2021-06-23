@@ -12,19 +12,23 @@ namespace ULTankZombies.Tank
         private TankStateMachine fsm;
         private Transform firepoint;
         public GameObject bulletPrefab;
+        public GameObject specialBulletPrefab;
         public float fireRate;
+        public float specialFireRate;
 
 
-        //private IdleState idleState;
+        private IdleState idleState;
         private MoveState moveState;
 
         private void Start()
         {
             fsm = new TankStateMachine();
-            moveState = new MoveState(this,fsm);
+            moveState = new MoveState(this, fsm);
+            idleState = new IdleState(this, fsm);
 
-            fsm.Start(moveState);
-            firepoint = transform.GetChild(0).GetChild(0).transform;
+            fsm.Start(idleState);
+
+            firePoint = transform.GetChild(0).GetChild(0).transform;
         }
 
         private void Update()
@@ -33,13 +37,27 @@ namespace ULTankZombies.Tank
             fsm.CurrentState.OnLogicUpdate();
         }
 
+        public void Move()
+        {
+            fsm.ChangeState(moveState);
+        }
+
+        public void Stop()
+        {
+            fsm.ChangeState(idleState);
+        }
+
         private void FixedUpdate()
         {
             fsm.CurrentState.OnPhysicsUpdate();
         }
-        public void Fire()
+
+        public void Fire(bool specialBullet)
         {
-            Instantiate(bulletPrefab,firepoint.position,firepoint.rotation);
+
+            GameObject prefab = (specialBullet) ? specialBulletPrefab : bulletPrefab;
+            
+            Instantiate(prefab, firePoint.position, firePoint.rotation);
         }
     }
 }

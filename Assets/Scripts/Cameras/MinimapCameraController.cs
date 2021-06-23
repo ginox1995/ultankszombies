@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ULTanksZombies.Cameras
+namespace ULTankZombies.Cameras
 {
     public class MinimapCameraController : MonoBehaviour
     {
@@ -11,8 +11,7 @@ namespace ULTanksZombies.Cameras
         {
             Vector3 newPosition = new Vector3(
                 tank.position.x,
-                transform.position.y,
-                tank.position.z
+                transform.position.y, tank.position.z
             );
             transform.position = newPosition;
         }

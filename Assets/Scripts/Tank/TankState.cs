@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ULTanksZombies.Tank
+namespace ULTankZombies.Tank
 {
     public abstract class TankState
     {
@@ -14,7 +14,6 @@ namespace ULTanksZombies.Tank
             this.controller = controller;
             this.fsm = fsm;
         }
-
         public virtual void OnEnter() { }
         public virtual void OnExit() { }
         public virtual void OnHandleInput() { }
@@ -22,3 +21,4 @@ namespace ULTanksZombies.Tank
         public virtual void OnPhysicsUpdate() { }
     }
 }
+

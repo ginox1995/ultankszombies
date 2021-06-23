@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace ULTanksZombies.Zombies
-{
-    public abstract class ZombieState
+namespace ULTankZombies.Zombies {
+    public class ZombieState
     {
         protected ZombieController controller;
         protected ZombieStateMachine fsm;
@@ -14,11 +12,11 @@ namespace ULTanksZombies.Zombies
             this.controller = controller;
             this.fsm = fsm;
         }
-
-        public virtual void OnEnter() { }
-        public virtual void OnExit() { }
-        public virtual void OnHandleInput() { }
-        public virtual void OnLogicUpdate() { }
-        public virtual void OnPhysicsUpdate() { }
+        public virtual void onEnter() { }
+        public virtual void onExit() { }
+        public virtual void onHandleInput() { }
+        public virtual void onPhysicsUpdate() { }
+        public virtual void onLogicUpdate() { }
     }
 }
+

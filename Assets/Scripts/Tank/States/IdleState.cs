@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ULTanksZombies.Tank
+namespace ULTankZombies.Tank
 {
     public class IdleState
     {
-    }
 
+    }
 }
+

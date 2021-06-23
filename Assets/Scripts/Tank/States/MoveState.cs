@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ULTanksZombies.Music;
 
-namespace ULTanksZombies.Tank
+namespace ULTankZombies.Tank
 {
     public class MoveState : TankState
     {
@@ -34,11 +34,10 @@ namespace ULTanksZombies.Tank
 
         public override void OnHandleInput()
         {
-            base.OnHandleInput();
-            horizontalMovement =  Input.GetAxis("Horizontal");
+            horizontalMovement=Input.GetAxis("Horizontal");
             verticalMovement = Input.GetAxis("Vertical");
 
-            if (Input.GetMouseButtonDown(0) && countdown <= 0f)
+            if (Input.GetMouseButtonDown(0) && countdown<=0f)
             {
                 //Fire
                 shoot = true;
@@ -62,7 +61,6 @@ namespace ULTanksZombies.Tank
 
         public override void OnLogicUpdate()
         {
-            base.OnLogicUpdate();
             if (shoot)
             {
                 controller.Fire(false);
@@ -78,14 +76,11 @@ namespace ULTanksZombies.Tank
 
         public override void OnPhysicsUpdate()
         {
-            base.OnPhysicsUpdate();
-
-            Vector3 movement = controller.transform.forward
-                * verticalMovement * controller.speed * Time.fixedDeltaTime;
+            Vector3 movement = controller.transform.forward*
+                verticalMovement*controller.speed*Time.fixedDeltaTime;
             rb.MovePosition(rb.position + movement);
 
-
-            controller.transform.Rotate(Vector3.up * horizontalMovement * rotationSpeed);
+            controller.transform.Rotate(Vector3.up*horizontalMovement*rotationSpeed);
         }
         public override void OnEnter() 
         {
@@ -101,3 +96,4 @@ namespace ULTanksZombies.Tank
         }
     }
 }
+

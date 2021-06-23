@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ULTanksZombies.Tank
+namespace ULTankZombies.Tank
 {
     public class TankStateMachine
     {
@@ -13,7 +13,6 @@ namespace ULTanksZombies.Tank
             CurrentState = initialState;
             CurrentState.OnEnter();
         }
-
         public void ChangeState(TankState newState)
         {
             CurrentState.OnExit();
@@ -21,4 +20,5 @@ namespace ULTanksZombies.Tank
             CurrentState.OnEnter();
         }
     }
+
 }

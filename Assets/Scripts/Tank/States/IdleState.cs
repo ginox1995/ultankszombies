@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ULTanksZombies.Tank
+namespace ULTankZombies.Tank
 {
     public class IdleState : TankState
     {
-
         
         private float fireRate;
         private float specialFireRate;
@@ -67,4 +66,6 @@ namespace ULTanksZombies.Tank
         }
     }
 
+    }
 }
+

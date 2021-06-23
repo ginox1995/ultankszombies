@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ULTanksZombies.Tank
+namespace ULTankZombies.Tank
 {
     [RequireComponent(typeof(Rigidbody))]
     public class TankController : MonoBehaviour
     {
         public float speed;
         public float rotationSpeed;
+        private TankStateMachine fsm;
+        private Transform firepoint;
         public GameObject bulletPrefab;
         public GameObject specialBulletPrefab;
         public float fireRate;
         public float specialFireRate;
 
-        private TankStateMachine fsm;
-        private Transform firePoint;
 
         private IdleState idleState;
         private MoveState moveState;
@@ -60,5 +60,5 @@ namespace ULTanksZombies.Tank
             Instantiate(prefab, firePoint.position, firePoint.rotation);
         }
     }
-
 }
+

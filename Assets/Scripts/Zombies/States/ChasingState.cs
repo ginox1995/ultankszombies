@@ -12,16 +12,18 @@ namespace ULTankZombies.Zombies {
         private float rotationSpeed;
         private Rigidbody rb;
 
-        public ChasingState(ZombieController controller, ZombieStateMachine fsm) : base(controller, fsm)
+        public ChasingState(ZombieController controller, ZombieStateMachine fsm)
+            : base(controller, fsm)
         {
+         
             tank = controller.tank;
             speed = controller.settings.speed;
             rotationSpeed = controller.settings.rotationSpeed;
             rb = controller.GetComponent<Rigidbody>();
          
         }
-                
-        public override void OnPhysicsUpdate()
+
+        public override void onPhysicsUpdate()
         {
             base.onPhysicsUpdate();
             Vector3 NewDirection = (controller.tank.position - controller.transform.position).normalized;

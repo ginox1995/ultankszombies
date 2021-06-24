@@ -10,7 +10,7 @@ namespace ULTankZombies.Tank
         public float speed;
         public float rotationSpeed;
         private TankStateMachine fsm;
-        private Transform firepoint;
+        private Transform firePoint;
         public GameObject bulletPrefab;
         public GameObject specialBulletPrefab;
         public float fireRate;

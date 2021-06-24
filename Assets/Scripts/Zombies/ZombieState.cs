@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ULTankZombies.Zombies;
+
 namespace ULTankZombies.Zombies {
+
     public class ZombieState
+
     {
         protected ZombieController controller;
         protected ZombieStateMachine fsm;

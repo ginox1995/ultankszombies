@@ -9,6 +9,8 @@ TagManager:
   - ZombieHorde
   - AudioManager
   - Ground
+  - Fire
+  - Hearts
   layers:
   - Default
   - TransparentFX

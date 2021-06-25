@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6416933213964398439}
   - component: {fileID: 6416933213964398436}
   m_Layer: 0
-  m_Name: SpeedZombieHorde 1
+  m_Name: SpeedZombieHorde
   m_TagString: ZombieHorde
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3af4ba1c702dc08448f787986bd8834a, type: 2}
+  - {fileID: 2100000, guid: a18b4c0c6923d5c4db372c204c206f73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

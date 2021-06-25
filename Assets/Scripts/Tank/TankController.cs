@@ -15,7 +15,10 @@ namespace ULTankZombies.Tank
         public GameObject specialBulletPrefab;
         public float fireRate;
         public float specialFireRate;
-
+        private float damaged=3;
+        private SpriteRenderer heart1;
+        private SpriteRenderer heart2;
+        private SpriteRenderer heart3;
 
         private IdleState idleState;
         private MoveState moveState;
@@ -27,6 +30,9 @@ namespace ULTankZombies.Tank
             moveState = new MoveState(this, fsm);
             idleState = new IdleState(this, fsm);
             attackState = new AttackState(this, fsm);
+            heart1 = GameObject.Find("Heart1").GetComponent<SpriteRenderer>();
+            heart2 = GameObject.Find("Heart2").GetComponent<SpriteRenderer>();
+            heart3 = GameObject.Find("Heart3").GetComponent<SpriteRenderer>();
 
             fsm.Start(idleState);
 
@@ -66,6 +72,36 @@ namespace ULTankZombies.Tank
             
             Instantiate(prefab, firePoint.position, firePoint.rotation);
         }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Zombie") || collision.gameObject.CompareTag("ZombieHorde"))
+            {
+                if (damaged == 1)
+                    Destroy(gameObject);
+
+                Damaged(damaged);
+                damaged -= 1;
+                
+                
+            }
+        }
+        private void Damaged(float heart)
+        {
+            switch (heart)
+            {
+                case 1:
+                    heart1.enabled = false;
+                    break;
+                case 2:
+                    heart2.enabled = false;
+                    break;
+                case 3:
+                    heart3.enabled = false;
+                    break;
+            }
+        }
+
     }
 }
 

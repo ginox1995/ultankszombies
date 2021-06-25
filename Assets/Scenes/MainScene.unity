@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 625546503}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,8 +604,8 @@ MonoBehaviour:
   rotationSpeed: 4
   bulletPrefab: {fileID: 9017312209479789272, guid: bb49d58cefcc86f498a5e8e13e590766, type: 3}
   specialBulletPrefab: {fileID: 1374257277440787000, guid: ff6c31933c11d5a4b993f905e39f0246, type: 3}
-  fireRate: 4
-  specialFireRate: 0.5
+  fireRate: 0.5
+  specialFireRate: 4
 --- !u!1 &809108947
 GameObject:
   m_ObjectHideFlags: 3
@@ -760,133 +760,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 24.046, y: -4.818, z: -0.228}
---- !u!1 &840012129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 840012131}
-  - component: {fileID: 840012130}
-  m_Layer: 0
-  m_Name: CountDown
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &840012130
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840012129}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ea85b5f613cee5a44afd26cfb3833cf3, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.4
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &840012131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840012129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4744256, y: 0.78389835, z: -12.69161}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915806089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1471,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: CountDown
+    clip: {fileID: 8300000, guid: ea85b5f613cee5a44afd26cfb3833cf3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieHordeSound
+    clip: {fileID: 8300000, guid: 35719222841cf394bbb9657e9d672085, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   BGM: {fileID: 0}
 --- !u!1 &1623845837
 GameObject:
@@ -1629,12 +1514,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HordeStartSound: {fileID: 1818799394}
-  CountdownAudio: {fileID: 840012130}
+  CountdownAudio: {fileID: 0}
   zombies:
-  - {fileID: 6690376624369110076, guid: 4aa4fa2935c703441a543b74f72376b3, type: 3}
-  - {fileID: 6673407679187738756, guid: 81d8b37285d0e844198d6dd229e2df0c, type: 3}
-  zombieFast: {fileID: 6690376624369110076, guid: 4aa4fa2935c703441a543b74f72376b3, type: 3}
-  zombieFat: {fileID: 6673407679187738756, guid: 81d8b37285d0e844198d6dd229e2df0c, type: 3}
+  - {fileID: 2646933881083732627, guid: 98e4b1892e3ea214291e08e5b3fbf252, type: 3}
+  - {fileID: 4531022664160505131, guid: a3a8699cf00c2164da9a8d8e33c5f1eb, type: 3}
+  zombieFast: {fileID: 2646933881083732627, guid: 98e4b1892e3ea214291e08e5b3fbf252, type: 3}
+  zombieFat: {fileID: 4531022664160505131, guid: a3a8699cf00c2164da9a8d8e33c5f1eb, type: 3}
   tank: {fileID: 745007504}
   countdownHorde: {fileID: 1367334963}
   ScoreText: {fileID: 1181529772}
@@ -1684,7 +1569,7 @@ Transform:
   - {fileID: 1307532866}
   - {fileID: 915806090}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751877037
 GameObject:

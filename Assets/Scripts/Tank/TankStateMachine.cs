@@ -19,6 +19,14 @@ namespace ULTankZombies.Tank
             CurrentState = newState;
             CurrentState.OnEnter();
         }
+
+        public void ChangeState(TankState newState, bool boolean)
+        {
+            CurrentState.OnExit();
+            CurrentState = newState;
+            CurrentState.OnEnter(boolean);
+        }
+
     }
 
 }

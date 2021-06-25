@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ULTanksZombies.Music;
 
 namespace ULTankZombies
 {
@@ -58,7 +59,7 @@ namespace ULTankZombies
         private void Update()
         {
             ScoreText.text = "Zombies eliminados: " + Score;
-            Debug.Log(Score);
+            //Debug.Log(Score);
             if (GameObject.FindGameObjectsWithTag("ZombieHorde").Length >0)
             {
                 HordaEnProgreso = true;
@@ -89,9 +90,9 @@ namespace ULTankZombies
 
                 PlayCountdown = true;
             }
-            if (!PlayCountdown)
+            if (PlayCountdown)
             {
-                CountdownAudio.Play();
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("CountDown");
                 PlayCountdown = false;
             }
             
@@ -104,9 +105,9 @@ namespace ULTankZombies
             if (spawnHordeTime<0 && !HordaEnProgreso)
             {
                 spawnHordeTime = 60;
-                HordeStartSound.Play();
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("ZombieHordeSound");
                 SpawnHorde();
-                
+                                
             }
             
         }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6690376624369110076
+--- !u!1 &2646933881083732627
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6690376624369110072}
-  - component: {fileID: 343403932758472764}
-  - component: {fileID: 6690376624369110073}
-  - component: {fileID: 6690376624369110077}
-  - component: {fileID: 6690376624369110079}
-  - component: {fileID: 6690376624369110078}
-  - component: {fileID: 6690376624369110074}
+  - component: {fileID: 2646933881083732631}
+  - component: {fileID: 8982207691294398099}
+  - component: {fileID: 2646933881083732630}
+  - component: {fileID: 2646933881083732626}
+  - component: {fileID: 2646933881083732624}
+  - component: {fileID: 2646933881083732625}
+  - component: {fileID: 2646933881083732629}
   m_Layer: 0
   m_Name: FatZombie 1
   m_TagString: Zombie
@@ -22,13 +22,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6690376624369110072
+--- !u!4 &2646933881083732631
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3721, y: 0.9421, z: 22.9}
   m_LocalScale: {x: 0.47571805, y: 1.5643216, z: 0.3082}
@@ -36,13 +36,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &343403932758472764
+--- !u!82 &8982207691294398099
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -132,13 +132,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!54 &6690376624369110073
+--- !u!54 &2646933881083732630
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -148,34 +148,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &6690376624369110077
+--- !u!65 &2646933881083732626
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &6690376624369110079
+--- !u!33 &2646933881083732624
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6690376624369110078
+--- !u!23 &2646933881083732625
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -210,13 +210,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6690376624369110074
+--- !u!114 &2646933881083732629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690376624369110076}
+  m_GameObject: {fileID: 2646933881083732627}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c7e50dc4d938fb45bd94790152fb5dd, type: 3}

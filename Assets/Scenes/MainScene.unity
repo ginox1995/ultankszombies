@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 625546503}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -758,8 +758,8 @@ MonoBehaviour:
   rotationSpeed: 4
   bulletPrefab: {fileID: 9017312209479789272, guid: bb49d58cefcc86f498a5e8e13e590766, type: 3}
   specialBulletPrefab: {fileID: 1374257277440787000, guid: ff6c31933c11d5a4b993f905e39f0246, type: 3}
-  fireRate: 4
-  specialFireRate: 0.5
+  fireRate: 0.5
+  specialFireRate: 4
 --- !u!1 &759205751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2207,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: CountDown
+    clip: {fileID: 8300000, guid: ea85b5f613cee5a44afd26cfb3833cf3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieHordeSound
+    clip: {fileID: 8300000, guid: 35719222841cf394bbb9657e9d672085, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   BGM: {fileID: 0}
 --- !u!1 &1623845837
 GameObject:
@@ -2239,7 +2251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerGameOver: {fileID: 0}
   HordeStartSound: {fileID: 1818799394}
-  CountdownAudio: {fileID: 840012130}
+  CountdownAudio: {fileID: 0}
   zombies:
   - {fileID: 6690376624369110076, guid: 4aa4fa2935c703441a543b74f72376b3, type: 3}
   - {fileID: 6673407679187738756, guid: 81d8b37285d0e844198d6dd229e2df0c, type: 3}

@@ -19,12 +19,14 @@ namespace ULTankZombies.Tank
 
         private IdleState idleState;
         private MoveState moveState;
+        private AttackState attackState;
 
         private void Start()
         {
             fsm = new TankStateMachine();
             moveState = new MoveState(this, fsm);
             idleState = new IdleState(this, fsm);
+            attackState = new AttackState(this, fsm);
 
             fsm.Start(idleState);
 
@@ -45,6 +47,11 @@ namespace ULTankZombies.Tank
         public void Stop()
         {
             fsm.ChangeState(idleState);
+        }
+
+        public void Attack(bool attackType)
+        {
+            fsm.ChangeState(attackState, attackType);
         }
 
         private void FixedUpdate()

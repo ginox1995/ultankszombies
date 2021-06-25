@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ULTanksZombies.Music;
 
 namespace ULTankZombies
 {
@@ -63,7 +64,7 @@ namespace ULTankZombies
         }
         private void Update()
         {
-            //Esta parte del código es para activar el gameover, tanto para cuando se gana o pierde detectando si el tanque fue destruido o si los mausoleos fueron destruidos
+            //Esta parte del cï¿½digo es para activar el gameover, tanto para cuando se gana o pierde detectando si el tanque fue destruido o si los mausoleos fueron destruidos
             if (GameObject.Find("Tank")==null)
             {
                 managerGameOver.SetupDefeat(Score);
@@ -72,7 +73,7 @@ namespace ULTankZombies
             {
                 managerGameOver.SetupVictory(Score);
             }
-            //Añade los booleanos para que el juego sepa que los mausoleos fueron destruidos.
+            //Aï¿½ade los booleanos para que el juego sepa que los mausoleos fueron destruidos.
             if (GameObject.Find("MausoleumSupDer")==null)
             {
                 mausoleumSupDerUp = false;
@@ -91,7 +92,9 @@ namespace ULTankZombies
             }
             //Muestra del score del juego.
             ScoreText.text = "Zombies eliminados: " + Score;
-            //Detecta si hay una horda en progreso buscando el tag de horda, si aun hay un zombie de horda vivo, la nueva horda no se iniciará hasta que todos los zombies de la horda se destruyan
+
+            //Detecta si hay una horda en progreso buscando el tag de horda, si aun hay un zombie de horda vivo, la nueva horda no se iniciarï¿½ hasta que todos los zombies de la horda se destruyan
+
             if (GameObject.FindGameObjectsWithTag("ZombieHorde").Length >0)
             {
                 HordaEnProgreso = true;
@@ -117,7 +120,7 @@ namespace ULTankZombies
                 countdownHorde.color = Color.red;
                 
             }
-            //Activación del countdown de la Horda.
+            //Activaciï¿½n del countdown de la Horda.
             if (spawnHordeTime < 10.5f && spawnHordeTime>10f)
             {
 
@@ -125,7 +128,7 @@ namespace ULTankZombies
             }
             if (PlayCountdown)
             {
-                CountdownAudio.Play();
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("CountDown");
                 PlayCountdown = false;
             }
             //Spawneo de la horda y de los zombies regulares.
@@ -138,8 +141,9 @@ namespace ULTankZombies
             if (spawnHordeTime<0 && !HordaEnProgreso)
             {
                 spawnHordeTime = 60;
-                HordeStartSound.Play();
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("ZombieHordeSound");
                 SpawnHorde();
+
             }
             
         }

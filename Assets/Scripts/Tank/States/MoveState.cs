@@ -7,29 +7,22 @@ namespace ULTankZombies.Tank
 {
     public class MoveState : TankState
     {
-        private AudioSource audioSource;
+
         private Rigidbody rb;
         private float horizontalMovement;
         private float verticalMovement;
         private float speed;
         private float rotationSpeed;
-        private float fireRate;
-        private float specialFireRate;
+        private bool attackStateComming;
 
         //private Vector3 mousePosition;
-        private bool shoot = false;
-        private float countdown = 0f;
-        private bool specialShoot = false;
-        private float specialCountdown = 0f;
 
         public MoveState(TankController controller, TankStateMachine fsm) : base(controller, fsm)
         {
             rb = controller.GetComponent<Rigidbody>();
             speed = controller.speed;
             rotationSpeed = controller.rotationSpeed;
-            fireRate = controller.fireRate;
-            specialFireRate = controller.specialFireRate;
-            audioSource = controller.GetComponent<AudioSource>();
+            attackStateComming = false;
         }
 
         public override void OnHandleInput()
@@ -37,41 +30,22 @@ namespace ULTankZombies.Tank
             horizontalMovement=Input.GetAxis("Horizontal");
             verticalMovement = Input.GetAxis("Vertical");
 
-            if (Input.GetMouseButtonDown(0) && countdown<=0f)
+            if (Input.GetMouseButtonDown(0))
             {
-                //Fire
-                shoot = true;
-                countdown = 1f / fireRate;
-            }
-            countdown -= Time.deltaTime;
+                attackStateComming = true;
+                controller.Attack(false);
 
-            if (Input.GetMouseButtonDown(1) && specialCountdown <= 0f)
-            {
-                //Fire
-                
-                specialShoot = true;
-                specialCountdown = 1f / specialFireRate;
             }
-            specialCountdown -= Time.deltaTime;
+            if (Input.GetMouseButtonDown(1))
+            {
+                attackStateComming = true;
+                controller.Attack(true);
+
+            }
             if (horizontalMovement == 0f && verticalMovement == 0f)
             {
                 controller.Stop();
             }
-        }
-
-        public override void OnLogicUpdate()
-        {
-            if (shoot)
-            {
-                controller.Fire(false);
-                shoot = false;
-            }
-            if (specialShoot)
-            {
-                controller.Fire(true);
-                specialShoot = false;
-            }
-
         }
 
         public override void OnPhysicsUpdate()
@@ -84,14 +58,20 @@ namespace ULTankZombies.Tank
         }
         public override void OnEnter() 
         {
-            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("TankRunnig");
+            if (!attackStateComming)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Play("TankRunnig");
+                attackStateComming = false;
+            }
+            
         }
 
 
 
         public override void OnExit() 
         {
-            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Stop("TankRunnig");
+            if (!attackStateComming)
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().Stop("TankRunnig");
             
         }
     }

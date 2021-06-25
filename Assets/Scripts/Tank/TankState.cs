@@ -15,6 +15,7 @@ namespace ULTankZombies.Tank
             this.fsm = fsm;
         }
         public virtual void OnEnter() { }
+        public virtual void OnEnter(bool boolean) { }
         public virtual void OnExit() { }
         public virtual void OnHandleInput() { }
         public virtual void OnLogicUpdate() { }
